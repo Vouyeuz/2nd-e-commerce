@@ -8,19 +8,30 @@ import {
   IconButton,
 } from "@material-ui/core";
 import { AddShoppingCart } from "@material-ui/icons";
+import useStyle from "./styles";
 
 const Product = ({ product }) => {
+  const classes = useStyle();
+
+  console.log(product);
+
+  return (<div>test</div>)
+
   return (
     <Card className={classes.root}>
-      <CardMedia className={clases.media} image="" title={product.name} />
+      <CardMedia
+        className={classes.media}
+        image={product.media.source}
+        title={product.name}
+      />
       <CardContent>
         <div className={classes.cardContent}>
-          <Typography variant="h5" gutterBottom>
+          <Typography variant="h6" gutterBottom>
             {product.name}
           </Typography>
-          <Typography variant="body2">{product.price}</Typography>
+          <Typography variant="h6">{product.price.formatted_with_symbol}</Typography>
         </div>
-        <Typography variant="h2" color="textSecondary">
+        <Typography variant="body2" color="textSecondary">
           {product.description}
         </Typography>
       </CardContent>
