@@ -9,6 +9,7 @@ export default makeStyles((theme) => ({
   },
   emptyButton: {
     minWidth: "150px",
+    maxHeight: "50px",
     [theme.breakpoints.down("xs")]: {
       marginBottom: "5px",
     },
@@ -18,14 +19,17 @@ export default makeStyles((theme) => ({
   },
   checkoutButton: {
     minWidth: "150px",
+    maxHeight: "42.39px",
   },
   link: {
     textDecoration: "none",
   },
   cardDetails: {
     display: "flex",
+    flexDirection: "column",
     marginTop: "10%",
     width: "100%",
     justifyContent: "space-between",
+    alignItems: "center",
   },
 }));

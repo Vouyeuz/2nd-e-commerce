@@ -14,9 +14,9 @@ const Cart = ({ cart, onUpdateCartQty, onRemoveFromCart, onEmptyCart }) => {
 
   const renderEmptyCart = () => (
     <Typography variant="subtitle1">
-      You have no items in your shopping cart,
+      You have no koi in your shopping cart, 
       <Link className={classes.link} to="/">
-        start adding some
+        start catching some
       </Link>
       !
     </Typography>
@@ -28,7 +28,7 @@ const Cart = ({ cart, onUpdateCartQty, onRemoveFromCart, onEmptyCart }) => {
     <>
       <Grid container spacing={3}>
         {cart.line_items.map((lineItem) => (
-          <Grid item xs={12} sm={4} key={lineItem.id}>
+          <Grid item xs={12} sm={6} md={4} lg={3} key={lineItem.id}>
             <CartItem
               item={lineItem}
               onUpdateCartQty={onUpdateCartQty}
@@ -37,11 +37,11 @@ const Cart = ({ cart, onUpdateCartQty, onRemoveFromCart, onEmptyCart }) => {
           </Grid>
         ))}
       </Grid>
-      <div className={classes.cardDetails}>
-        <Typography variant="h4">
+      <div className={classes.cardDetails} gutterBottom>
+        <Typography style={{fontWeight: "700"}} variant="h6" gutterBottom>
           Subtotal: {cart.subtotal.formatted_with_symbol}
         </Typography>
-        <div>
+        <div style={{display: "flex"}}>
           <Button
             className={classes.emptyButton}
             size="large"
@@ -65,14 +65,15 @@ const Cart = ({ cart, onUpdateCartQty, onRemoveFromCart, onEmptyCart }) => {
           </Button>
         </div>
       </div>
+      <div className={classes.toolbar}/>
     </>
   );
 
   return (
     <Container>
       <div className={classes.toolbar} />
-      <Typography className={classes.title} variant="h3" gutterBottom>
-        Your Shopping Cart
+      <Typography style={{fontWeight: "777"}} className={classes.title} variant="h5" gutterBottom>
+        Your Shopping Cart!
       </Typography>
       {!cart.line_items.length ? renderEmptyCart() : renderCart()}
     </Container>

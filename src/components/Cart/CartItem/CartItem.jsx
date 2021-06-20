@@ -28,8 +28,8 @@ const CartItem = ({ item, onUpdateCartQty, onRemoveFromCart }) => {
         className={classes.media}
       />
       <CardContent className={classes.cardContent}>
-        <Typography variant="h4">{item.name}</Typography>
-        <Typography variant="h5">
+        <Typography variant="h6">{item.name}</Typography>
+        <Typography variant="body2">
           {item.line_total.formatted_with_symbol}
         </Typography>
       </CardContent>
@@ -37,15 +37,15 @@ const CartItem = ({ item, onUpdateCartQty, onRemoveFromCart }) => {
         <div className={classes.buttons}>
           <Button
             type="button"
-            size="small"
+            size="small" color="inherit"
             onClick={() => handleUpdateCartQty(item.id, item.quantity - 1)}
           >
             -
           </Button>
           <Typography>&nbsp;{item.quantity}&nbsp;</Typography>
-          <Button
+          <Button 
             type="button"
-            size="small"
+            size="small" color="primary"
             onClick={() => handleUpdateCartQty(item.id, item.quantity + 1)}
           >
             +
